@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gao.dao.B_QdDao">
+
+   <insert id="AddB_Qd"  parameterType="B_Qd">
+   
+   	insert into b_qd (qdmc) values (#{qdmc})
+   
+   </insert>
+   
+   <select id="getAllQds" resultType="B_Qd">
+   
+   select * from b_qd
+   
+   </select>
+   
+   <delete id="DeleteQd" parameterType="int">
+   
+   	delete  from  b_qd where qdid=#{id}
+   
+   </delete>
+   
+   <select id="getQd" parameterType="int" resultType="B_Qd">
+   
+   select * from b_qd where qdid=#{qdid}
+   
+   </select>
+   
+   <update id="UpdateQd" parameterType="int">
+   
+   update b_qd set qdmc=#{qdmc} where qdid=#{qdid}
+   
+   </update>
+   
+   
+ </mapper>

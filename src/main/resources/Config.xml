@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<typeAliases>
+<typeAlias alias="T_User"  type="com.gao.po.T_User"/>
+<typeAlias alias="B_User"  type="com.gao.po.B_User"/>
+<typeAlias alias="B_Xxk"  type="com.gao.po.B_Xxk"/>
+<typeAlias alias="B_Cd"  type="com.gao.po.B_Cd"/>
+<typeAlias alias="B_Qd"  type="com.gao.po.B_Qd"/>
+</typeAliases>
+
+<mappers>
+<mapper resource="com/gao/po/T_User.xml"/>
+<mapper resource="com/gao/po/B_User.xml"/>
+<mapper resource="com/gao/po/B_Qd.xml"/>
+<mapper resource="com/gao/po/B_Xy.xml"/>
+</mappers>
+</configuration>

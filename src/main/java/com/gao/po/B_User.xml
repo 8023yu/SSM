@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gao.po.B_UserDao">
+
+<resultMap type="B_User"  id="m1">
+<id column="userid" property="userid"/>
+<result column="yhm"  property="yhm"/>			
+<result column="mm"  property="mm"/>			
+<collection property="xxks" ofType="B_Xxk" column="userid"  select="SelectXxkByUserId"></collection>
+</resultMap>
+	
+<resultMap type="B_Xxk" id="m2">	
+<id column="xxkid" property="xxkid"/>		
+<result column="xxkmc"  property="xxkmc"/>		
+<collection property="cds"  ofType="B_Cd" column="xxkid"  select="SelectCdByxxkID"></collection>		
+</resultMap>
+	
+<select id="SelectCdByxxkID"  parameterType="int"  resultType="B_Cd">
+ 
+select  *  from b_cd  where cdid in (select cdid from relationship_6 where xxkid=#{xxkid})
+ 
+</select>
+
+<select id="SelectXxkByUserId"  parameterType="int"   resultMap="m2">
+
+select  *  from b_xxk where xxkid in (select  xxkid  from relationship_5 where userid=#{userid})
+
+</select>
+
+<select id="getUserByCondition" parameterType="map" resultType="B_User">
+    
+select * from b_user where yhm=#{yhm} and mm=#{mm}
+    
+</select>
+    
+    
+<select id="getUserById" parameterType="int"  resultMap="m1">
+    
+select * from b_user  where  userid=#{userid}
+    
+</select>
+
+</mapper>
