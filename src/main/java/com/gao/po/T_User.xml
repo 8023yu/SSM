@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gao.dao.T_UserDao">
 
-<insert id="InsertT_User" parameterType="T_User">
+    <insert id="InsertT_User" parameterType="T_User">
 insert into t_user(xm,nl,xb) values(#{xm},#{nl},#{xb})
 </insert>
+    <!-- insert 语句最好像这样写 ， 去查查具体语法 , id 命名 要遵循 " 驼峰命名" 规则-->
+    <insert id="InsertT_User" parameterType="T_User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xm != null">
+                xm,
+            </if>
+            <if test="nl != null">
+                nl,
+            </if>
+            <if test="xb != null">
+                xb,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xm != null">
+                #{xm},
+            </if>
+            <if test="nl != null">
+                #{nl},
+            </if>
+            <if test="xb != null">
+                #{xb},
+            </if>
+        </trim>
+</insert>
 
-<select id="getT_User" parameterType="int" resultType="T_User">
+    <select id="getT_User" parameterType="int" resultType="T_User">
 
 select * from t_user where id=#{id}
 
