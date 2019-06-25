@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.gap.dao.B_XyDao">
+<mapper namespace="com.gap.dao.bXyDao">
 <delete id="DeleteByQdId" parameterType="int">
 
   delete from b_xy where qdid=#{qdid}

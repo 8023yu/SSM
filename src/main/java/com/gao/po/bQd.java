@@ -1,6 +1,6 @@
 package com.gao.po;
 
-public class B_Qd {
+public class bQd {
 	
 	private Integer qdid;
 	

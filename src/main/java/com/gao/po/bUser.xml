@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gao.po.B_UserDao">
+<mapper namespace="com.gao.po.bUserDao">
 
-<resultMap type="B_User"  id="m1">
+<resultMap type="bUser"  id="m1">
 <id column="userid" property="userid"/>
 <result column="yhm"  property="yhm"/>			
 <result column="mm"  property="mm"/>			
-<collection property="xxks" ofType="B_Xxk" column="userid"  select="SelectXxkByUserId"></collection>
+<collection property="xxks" ofType="bXxk" column="userid"  select="SelectXxkByUserId"></collection>
 </resultMap>
 	
-<resultMap type="B_Xxk" id="m2">	
+<resultMap type="bXxk" id="m2">	
 <id column="xxkid" property="xxkid"/>		
 <result column="xxkmc"  property="xxkmc"/>		
-<collection property="cds"  ofType="B_Cd" column="xxkid"  select="SelectCdByxxkID"></collection>		
+<collection property="cds"  ofType="bCd" column="xxkid"  select="SelectCdByxxkID"></collection>		
 </resultMap>
 	
-<select id="SelectCdByxxkID"  parameterType="int"  resultType="B_Cd">
+<select id="SelectCdByxxkID"  parameterType="int"  resultType="bCd">
  
 select  *  from b_cd  where cdid in (select cdid from relationship_6 where xxkid=#{xxkid})
  
@@ -28,7 +28,7 @@ select  *  from b_xxk where xxkid in (select  xxkid  from relationship_5 where u
 
 </select>
 
-<select id="getUserByCondition" parameterType="map" resultType="B_User">
+<select id="getUserByCondition" parameterType="map" resultType="bUser">
     
 select * from b_user where yhm=#{yhm} and mm=#{mm}
     

@@ -1,7 +1,7 @@
 package com.gao.po;
 
-public class B_Gzcd {
-	
+public class bGzcd {
+	//关注程度
 	private Integer gzcdid;
 	
 	private String gzcdmc;

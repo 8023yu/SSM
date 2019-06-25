@@ -2,11 +2,11 @@ package com.gao.po;
 
 import java.util.List;
 
-public class B_Xxk {
+public class bXxk {
 	
 	private Integer xxkid;
 	private String xxkmc;
-	private List<B_Cd> cds;
+	private List<bCd> cds;
 	public Integer getXxkid() {
 		return xxkid;
 	}
@@ -19,10 +19,10 @@ public class B_Xxk {
 	public void setXxkmc(String xxkmc) {
 		this.xxkmc = xxkmc;
 	}
-	public List<B_Cd> getCds() {
+	public List<bCd> getCds() {
 		return cds;
 	}
-	public void setCds(List<B_Cd> cds) {
+	public void setCds(List<bCd> cds) {
 		this.cds = cds;
 	}
 	

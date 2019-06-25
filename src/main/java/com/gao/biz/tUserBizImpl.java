@@ -4,18 +4,18 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.gao.dao.T_UserDao;
-import com.gao.po.T_User;
+import com.gao.dao.tUserDao;
+import com.gao.po.tUser;
 @Service
-public class T_UserBizImpl implements T_UserBiz {
+public class tUserBizImpl implements tUserBiz {
 @Resource
-	private T_UserDao dao;
+	private tUserDao dao;
 	
 	
-	public boolean AddT_User(T_User user) {
+	public boolean AddT_User(tUser user) {
 		// TODO Auto-generated method stub
 		boolean flag=false;
-		int rows = dao.InsertT_User(user);
+		int rows = dao.InsertUser(user);
 		if(rows>0) {		
 			flag=true;		
 		}
@@ -24,10 +24,10 @@ public class T_UserBizImpl implements T_UserBiz {
 
 
 	@Override
-	public T_User getUser(Integer id) {
+	public tUser getUser(Integer id) {
 		// TODO Auto-generated method stub
 		
-		return dao.getT_User(id);
+		return dao.GetUserInfo(id);
 	}
 
 }

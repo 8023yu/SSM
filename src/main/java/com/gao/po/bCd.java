@@ -1,7 +1,7 @@
 package com.gao.po;
 
-public class B_Cd {
-	
+public class bCd {
+	//菜单
 	private Integer cdid;
 	private String cdmc;
 	private String cdlj;

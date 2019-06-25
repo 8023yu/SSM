@@ -1,6 +1,6 @@
 package com.gao.po;
 
-public class T_User {
+public class tUser {
 	
 	private Integer id;
 	private String xm;
@@ -30,6 +30,4 @@ public class T_User {
 	public void setXb(Integer xb) {
 		this.xb = xb;
 	}
-	
-
 }

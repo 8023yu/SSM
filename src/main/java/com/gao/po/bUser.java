@@ -2,20 +2,20 @@ package com.gao.po;
 
 import java.util.List;
 
-public class B_User {
+public class bUser {
 	
 	private Integer userid;
 	private String yhm;
 	private String mm;
-	private List<B_Xxk> xxks;
+	private List<bXxk> xxks;
 	
 	public Integer getUserid() {
 		return userid;
 	}
-	public List<B_Xxk> getXxks() {
+	public List<bXxk> getXxks() {
 		return xxks;
 	}
-	public void setXxks(List<B_Xxk> xxks) {
+	public void setXxks(List<bXxk> xxks) {
 		this.xxks = xxks;
 	}
 	public void setUserid(Integer userid) {

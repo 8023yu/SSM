@@ -9,43 +9,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gao.biz.B_QdBiz;
-import com.gao.po.B_Qd;
+import com.gao.biz.bQdBiz;
+import com.gao.po.bQd;
 
 @Controller
-public class QdController {
+public class qdController {
 	@Resource
-	private B_QdBiz biz;
+	private bQdBiz biz;
 	
 	@RequestMapping("/DeleteQd")
-	public @ResponseBody List<B_Qd> removeQd(@RequestParam(value="qdid") int qdid){
+	public @ResponseBody List<bQd> removeQd(@RequestParam(value="qdid") int qdid){
 	
 	return biz.DeleteQd(qdid);
 }
 	
 	
 	@RequestMapping("/getAllQd")
-	public @ResponseBody List<B_Qd> getAllQds(){
+	public @ResponseBody List<bQd> getAllQds(){
 		
-		return biz.getAllQd();
+		return biz.getQdInfo();
 				
 	}
 	
 	@RequestMapping("/AddQd")
-	public @ResponseBody boolean AddQd(B_Qd qd) {
+	public @ResponseBody boolean AddQd(bQd qd) {
 		
-		return biz.AddB_Qd(qd);
+		return biz.AddbQd(qd);
 	}
 	
     @RequestMapping("/getQd")
-    public @ResponseBody B_Qd getQd(@RequestParam(value="qdid") int qdid ) {
+    public @ResponseBody bQd getQd(@RequestParam(value="qdid") int qdid ) {
     	
     	return biz.getQd(qdid);
     	
     }
     
     @RequestMapping("/UpdateQd")
-    public @ResponseBody boolean UpdateQd(B_Qd qd) {
+    public @ResponseBody boolean UpdateQd(bQd qd) {
     	
     	
     	return biz.UpdateQd(qd);

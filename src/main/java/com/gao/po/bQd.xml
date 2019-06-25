@@ -2,15 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.gao.dao.B_QdDao">
+<mapper namespace="com.gao.dao.bQdDao">
 
-   <insert id="AddB_Qd"  parameterType="B_Qd">
-   
-   	insert into b_qd (qdmc) values (#{qdmc})
-   
+   <insert id="AddbQd"  parameterType="bQd">
+   <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="xm != null">
+              qdmc,
+         </if>
+    </trim>
+   <trim prefix="values (" suffix=")" suffixOverrides=",">
+         <if test="xm != null">
+            #{qdmc},
+         </if>  
+   </trim>
    </insert>
    
-   <select id="getAllQds" resultType="B_Qd">
+   <select id="getAllQds" resultType="bQd">
    
    select * from b_qd
    
@@ -22,7 +29,7 @@
    
    </delete>
    
-   <select id="getQd" parameterType="int" resultType="B_Qd">
+   <select id="getQd" parameterType="int" resultType="bQd">
    
    select * from b_qd where qdid=#{qdid}
    

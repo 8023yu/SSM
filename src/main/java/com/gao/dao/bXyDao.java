@@ -3,7 +3,7 @@ package com.gao.dao;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface B_XyDao {
+public interface bXyDao {
 	
 	public int DeleteXyByQdId(Integer qdid);
 	

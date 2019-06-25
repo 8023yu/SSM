@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gao.dao.bGzcdDao">
+
+<insert id="AddbGzcd" parameterType="bGzcd">
+   <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="xm != null">
+              gzcdmc,
+         </if>
+    </trim>
+   <trim prefix="values (" suffix=")" suffixOverrides=",">
+         <if test="xm != null">
+            #{gzcdmc},
+         </if>  
+   </trim>
+</insert>
+
+<select id="getGzcdInfo" resultType="bGzcd">
+
+select * from b_gzcd
+
+</select>
+
+<delete id="DeleteGzcd" parameterType="int">
+
+delete from b_gzcd where gzcdid={id}
+
+</delete>
+
+<select id="getGzcdById" parameterType="int" resultType="bGzcd">
+
+select * from b_gzcd where  gzcdid=#{gzcddid}
+
+</select>
+
+<update id="UpdateGzcd" parameterType="bGzcd">
+
+update b_gzcd set gzcdmc=#{gzcdmc} where gzcdid=#{gzcdid}
+
+</update>
+
+</mapper>
+
+
+
+
+

@@ -9,63 +9,54 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gao.biz.B_GzcdBiz;
-import com.gao.po.B_Gzcd;
+import com.gao.biz.bGzcdBiz;
+import com.gao.po.bGzcd;
 
 @Controller
-public class GzcdController {
+public class gzcdController {
 	@Resource
-      private B_GzcdBiz biz;
+      private bGzcdBiz biz;
 	
 	@RequestMapping("/UpdateGzcd")
-	public @ResponseBody boolean UpdateGzcd(B_Gzcd gzcd) {
+	public @ResponseBody boolean UpdateGzcd(bGzcd gzcd) {
 		
-		return biz.UpdateB_Gzcd(gzcd);
+		return biz.UpdatebGzcd(gzcd);
 		
 		
 	}
-	
-	
-	
+
 	@RequestMapping("/getGzcd")
-	public @ResponseBody B_Gzcd getGzcd(@RequestParam(value="gzcdid")int gzcdid) {
+	public @ResponseBody bGzcd getGzcdById(@RequestParam(value="gzcdid")int gzcdid) {
 		
-		return biz.getGzcd(gzcdid);
+		return biz.getGzcdById(gzcdid);
 		
 		
 	}
-	
 	
 	
 	@RequestMapping("/DeleteGzcd")
-	public @ResponseBody List<B_Gzcd> removeGzcd(@RequestParam(value="gzcdid")int gzcdid){
+	public @ResponseBody List<bGzcd> removeGzcd(@RequestParam(value="gzcdid")int gzcdid){
 		
 		return biz.DeleteGzcd(gzcdid); 
 		
 		
-	}
-	
-	
+	}	
 	
 	
 	@RequestMapping("/getAllGzcd")
-	public @ResponseBody List<B_Gzcd> getAllGzcd(){		
-		return biz.getAllGzcd();
+	public @ResponseBody List<bGzcd> getGzcdInfo(){		
+		return biz.getGzcdInfo();
 	}
-	
 	
 	
 	
 	@RequestMapping("/AddGzcd")
-	public @ResponseBody boolean AddGzcd(B_Gzcd gzcd) {
+	public @ResponseBody boolean AddGzcd(bGzcd gzcd) {
 	
-	return biz.AddB_Gzcd(gzcd);
+	return biz.AddbGzcd(gzcd);
 	
 	}
 	
-	
-	
-	
-	
+
 
 }

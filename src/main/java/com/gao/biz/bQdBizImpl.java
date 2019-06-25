@@ -8,20 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gao.dao.B_QdDao;
-import com.gao.dao.B_XyDao;
-import com.gao.po.B_Qd;
+import com.gao.dao.bQdDao;
+import com.gao.dao.bXyDao;
+import com.gao.po.bQd;
 @Service
-public class B_QdBizImpl implements B_QdBiz {
+public class bQdBizImpl implements bQdBiz {
 @Resource
-private B_QdDao dao;
+private bQdDao dao;
 
 @Resource
-private B_XyDao xydao;
+private bXyDao xydao;
 	
 	
 	@Override
-	public boolean AddB_Qd(B_Qd qd) {
+	public boolean AddbQd(bQd qd) {
 		// TODO Auto-generated method stub
 		boolean flag=false;
 		
@@ -38,7 +38,7 @@ private B_XyDao xydao;
 
 
 	@Override
-	public List<B_Qd> getAllQd() {
+	public List<bQd> getQdInfo() {
 		// TODO Auto-generated method stub
 		return dao.getAllQds();
 	}
@@ -47,27 +47,28 @@ private B_XyDao xydao;
 	@Override
 //	事物的注释
 	@Transactional(propagation=Propagation.REQUIRED)  
-	public List<B_Qd> DeleteQd(Integer id) {
+	public List<bQd> DeleteQd(Integer id) {
 		
 		int row1=xydao.DeleteXyByGzcdId(id);
 		
 		int row2=dao.DeleteQd(id);
-		
-		
+				
 		// TODO Auto-generated method stub
 		return dao.getAllQds();
 	}
 
 
 	@Override
-	public B_Qd getQd(Integer qdid) {
+	public bQd getQd(Integer qdid) {
+		
 		// TODO Auto-generated method stub
+		
 		return dao.getQd(qdid);
 	}
 
 
 	@Override
-	public boolean UpdateQd(B_Qd qd) {
+	public boolean UpdateQd(bQd qd) {
 		// TODO Auto-generated method stub
 		
 		boolean flag=false;
@@ -79,7 +80,9 @@ private B_XyDao xydao;
 				flag=true;
 				
 			}
-               return flag;
+               
+			return flag;
+	
 	}
 
 }

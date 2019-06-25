@@ -3,17 +3,17 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-<typeAlias alias="T_User"  type="com.gao.po.T_User"/>
-<typeAlias alias="B_User"  type="com.gao.po.B_User"/>
-<typeAlias alias="B_Xxk"  type="com.gao.po.B_Xxk"/>
-<typeAlias alias="B_Cd"  type="com.gao.po.B_Cd"/>
-<typeAlias alias="B_Qd"  type="com.gao.po.B_Qd"/>
+<typeAlias alias="tUser"  type="com.gao.po.tUser"/>
+<typeAlias alias="bUser"  type="com.gao.po.bUser"/>
+<typeAlias alias="bXxk"  type="com.gao.po.bXxk"/>
+<typeAlias alias="bCd"  type="com.gao.po.bCd"/>
+<typeAlias alias="bQd"  type="com.gao.po.bQd"/>
 </typeAliases>
 
 <mappers>
-<mapper resource="com/gao/po/T_User.xml"/>
-<mapper resource="com/gao/po/B_User.xml"/>
-<mapper resource="com/gao/po/B_Qd.xml"/>
-<mapper resource="com/gao/po/B_Xy.xml"/>
+<mapper resource="com/gao/po/tUser.xml"/>
+<mapper resource="com/gao/po/bUser.xml"/>
+<mapper resource="com/gao/po/bQd.xml"/>
+<mapper resource="com/gao/po/bXy.xml"/>
 </mappers>
 </configuration>

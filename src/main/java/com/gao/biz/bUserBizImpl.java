@@ -7,20 +7,20 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.gao.dao.B_UserDao;
-import com.gao.po.B_User;
+import com.gao.dao.bUserDao;
+import com.gao.po.bUser;
 @Service
-public class B_UserBizImpl implements B_UserBiz {
+public class bUserBizImpl implements bUserBiz {
 	@Resource
-	private B_UserDao dao;
+	private bUserDao dao;
 
 	@Override
-	public B_User CheckLogin(Map map) {
+	public bUser CheckLogin(Map map) {
 		// TODO Auto-generated method stub
 		
-		B_User  user  = null;
+		bUser  user  = null;
 		
-		List<B_User> list = dao.getUserByCondition(map);
+		List<bUser> list = dao.getUserByCondition(map);
 		
 		if(list.size()>0) {
 			
@@ -32,7 +32,7 @@ public class B_UserBizImpl implements B_UserBiz {
 	}
 
 	@Override
-	public B_User getUserById(Integer id) {
+	public bUser getUserById(Integer id) {
 		// TODO Auto-generated method stub
 		return dao.getUserById(id);
 	}

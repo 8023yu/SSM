@@ -8,26 +8,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gao.dao.B_GzcdDao;
-import com.gao.dao.B_XyDao;
-import com.gao.po.B_Gzcd;
+import com.gao.dao.bGzcdDao;
+import com.gao.dao.bXyDao;
+import com.gao.po.bGzcd;
 @Service
-public class B_GzcdBizIpml implements B_GzcdBiz {
+public class bGzcdBizImpl implements bGzcdBiz {
+
 	@Resource
-	private B_GzcdDao dao;
+	private bGzcdDao dao;
 	
 	@Resource
-	private B_XyDao xydao;
+	private bXyDao xydao;
 	
 	
 
 	@Override
-	public boolean AddB_Gzcd(B_Gzcd gzcd) {
+	public boolean AddbGzcd(bGzcd gzcd) {
 		// TODO Auto-generated method stub
 		
 		boolean flag=false;
 		
-		int  rows=dao.AddB_Gzcd(gzcd);
+		int  rows=dao.AddbGzcd(gzcd);
 		
 		if(rows>0) {
 			
@@ -41,51 +42,48 @@ public class B_GzcdBizIpml implements B_GzcdBiz {
 
 
 	@Override
-	public List<B_Gzcd> getAllGzcd() {
+	public List<bGzcd> getGzcdInfo() {
 		// TODO Auto-generated method stub
-		return dao.getAllGzcds();
+		return dao.getGzcdInfo();
 	}
 
 
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED)
-	public List<B_Gzcd> DeleteGzcd(Integer id) {
+	public List<bGzcd> DeleteGzcd(Integer id) {
 		// TODO Auto-generated method stub
-		
-		
+
 		int row1=xydao.DeleteXyByGzcdId(id);
 		int row2=dao.DelectGzcd(id);
-		
-        return dao.getAllGzcds();
+
+		return dao.getGzcdInfo();
 	}
 
 
 
 	@Override
-	public B_Gzcd getGzcd(Integer gzcdid) {
+	public bGzcd getGzcdById(Integer gzcdid) {
 		// TODO Auto-generated method stub
-		return dao.getGzcd(gzcdid);
+		return dao.getGzcdById(gzcdid);
 	}
 
 
 
 	@Override
-	public boolean UpdateB_Gzcd(B_Gzcd gzcd) {
+	public boolean UpdatebGzcd(bGzcd gzcd) {
 		// TODO Auto-generated method stub
 		
 		
 		boolean flag=false;
 		
-		int rows=dao.UpdateGzcd(gzcd);
+		int rows=dao.UpdatebGzcd(gzcd);
 		
 		if(rows>0) {
 			
 			flag=true;
-			
-			
+						
 		}
-		
 		
 		return flag;
 	}
